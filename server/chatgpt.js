@@ -1,6 +1,7 @@
 import Groq from "groq-sdk";
 import dotenv from 'dotenv'
 
+dotenv.config({ path:'/etc/secrets/GROQ.env'})
 
 const groq = new Groq({ apiKey: process.env.Groq });
 
