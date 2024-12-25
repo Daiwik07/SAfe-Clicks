@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { ScrollRestoration } from 'react-router-dom';
 
 const CyberbullyingAwareness = () => {
     const Section = ({ children, delay = 0 }) => {
@@ -30,7 +31,7 @@ const CyberbullyingAwareness = () => {
                 <header className="text-center mb-8">
                     <Section>
                         <h1 className="text-5xl font-bold text-[#47B884] leading-tight">
-                        The Tragic Story of Megan Meier: A Cyberbullying Case That Changed the Internet Forever
+                            The Tragic Story of Megan Meier: A Cyberbullying Case That Changed the Internet Forever
                         </h1>
                     </Section>
                     <Section delay={0.5}>
@@ -93,6 +94,7 @@ const CyberbullyingAwareness = () => {
                     </Section>
                 </section>
             </div>
+            <ScrollRestoration />
         </motion.div>
     );
 };

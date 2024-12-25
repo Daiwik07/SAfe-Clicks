@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Images } from '../Images/Images';
+import { Images } from '../Images/images';
+import { ScrollRestoration } from 'react-router-dom';
 
 const slides = [
-    { img: Images.first, heading: 'Olympic 2024', text: 'Inspire the World, Celebrate the Games' },
-    { img: Images.second, heading: 'Medals Of Olympic 2024', text: 'Together for Gold, Together in Paris' },
-    { img: Images.third, heading: 'Global Athletes', text: '2024: The Year of Champions' },
-    { img: Images.fourth, heading: 'Olympic Pulse', text: 'Where Champions Live' },
+    { img: Images.first},
+    { img: Images.second},
+    { img: Images.third },
+    { img: Images.fourth},
 ];
  
 const Slider = () => {
@@ -22,7 +23,6 @@ const Slider = () => {
         <div className="relative w-full h-[81.6vh] overflow-hidden">
             <div className="absolute inset-0">
                 <img src={slides[currentSlide].img} alt={`Slide ${currentSlide + 1}`} className="w-full h-full object-cover" />
-                {/* Buttons in the middle */}
                 <div className="absolute inset-y-1/2 flex justify-between w-full h-full transform -translate-y-1/2 px-4">
                     <button
                         className=" text-white px-4 py-2 rounded"
@@ -49,7 +49,6 @@ const Slider = () => {
                         </svg>
                     </button>
                 </div>
-                {/* Indicators */}
                 <div className="absolute bottom-4 inset-x-0 flex justify-center space-x-2">
                     {slides.map((_, index) => (
                         <div
@@ -59,6 +58,7 @@ const Slider = () => {
                     ))}
                 </div>
             </div>
+            <ScrollRestoration/>
         </div>
     );
 };

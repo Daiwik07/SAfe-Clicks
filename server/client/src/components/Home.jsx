@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ScrollRestoration } from 'react-router-dom';
 import Slider from './Slider';
 import CyberbullyingAwareness from './CyberbullyingAwareness';
 import ImportanceOfCyberbullyingAwareness from './ImportanceOfCyberbullyingAwareness';
@@ -7,7 +8,6 @@ import CustomVideoPlayer from './CustomVideoPlayer';
 import { Images } from '../Images/images';
 
 
-// Define animation variants for professional look
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
@@ -29,8 +29,7 @@ const Home = () => {
       <Slider />
       <CyberbullyingAwareness />
       <ImportanceOfCyberbullyingAwareness />
-      <CustomVideoPlayer video={Images.video}/>
-      {/* About Us Section */}
+      <CustomVideoPlayer video={Images.video} />
       <motion.section
         className="bg-gray-100"
         initial="hidden"
@@ -46,11 +45,11 @@ const Home = () => {
               variants={textVariants}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-              
+
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">About Us</h2>
               <h4 className="text-xl font-bold text-gray-900 sm:text-4xl">Hello, I'm Daiwik!</h4>
               <p className="mt-4 text-gray-600 text-lg">
-              Creative and skilled web developer specializing in building responsive, modern websites and applications using technologies like React and Node.js. Passionate about delivering seamless user experiences and innovative solutions.
+                Creative and skilled web developer specializing in building responsive, modern websites and applications using technologies like React and Node.js. Passionate about delivering seamless user experiences and innovative solutions.
               </p>
             </motion.div>
             <motion.div
@@ -96,12 +95,13 @@ const Home = () => {
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">About Us</h2>
               <h4 className="text-xl font-bold text-gray-900 sm:text-4xl">Hello, I'm Nimit!</h4>
               <p className="mt-4 text-gray-600 text-lg">
-              Creative web designer crafting visually stunning and user-friendly designs. Skilled in creating responsive layouts that blend aesthetics with functionality to deliver exceptional user experiences.
+                Creative web designer crafting visually stunning and user-friendly designs. Skilled in creating responsive layouts that blend aesthetics with functionality to deliver exceptional user experiences.
               </p>
             </motion.div>
           </div>
         </div>
       </motion.section>
+      <ScrollRestoration />
     </div>
   );
 };

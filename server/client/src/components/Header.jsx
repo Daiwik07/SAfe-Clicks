@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Images } from '../Images/images';
 import { motion } from 'framer-motion';
+import { ScrollRestoration } from 'react-router-dom';
 
 const Header = () => {
 
@@ -93,23 +94,23 @@ const Header = () => {
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                        Logout
+                    Logout
                 </motion.button>
-            </motion.div> 
+            </motion.div>
         );
     }
 
     return (
         <header className="relative flex justify-between items-center py-4">
             <div className="absolute -z-20 p-0 left-0 w-full h-fuxll overflow-hidden">
-                          <video 
-                            src={Images.space} 
-                            loop 
-                            muted 
-                            autoPlay 
-                            className="w-full h-full object-cover">
-                          </video>
-                        </div>
+                <video
+                    src={Images.space}
+                    loop
+                    muted
+                    autoPlay
+                    className="w-full h-full object-cover">
+                </video>
+            </div>
             <nav className="flex justify-between items-center w-[99.9%]">
                 <motion.div className="flex justify-center items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                     <Link to="/" className="flex justify-center items-center">
@@ -189,6 +190,7 @@ const Header = () => {
                     {button}
                 </div>
             </nav>
+            <ScrollRestoration />
         </header>
     );
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ScrollRestoration } from 'react-router-dom';
 
 const CustomVideoPlayer = ({ video }) => {
     const videoRef = useRef(null);
@@ -8,7 +9,7 @@ const CustomVideoPlayer = ({ video }) => {
     const [volume, setVolume] = useState(1);
     const [playbackRate, setPlaybackRate] = useState(1);
 
-    // Handle Play/Pause
+
     const handlePlayPause = () => {
         if (isPlaying) {
             videoRef.current.pause();
@@ -18,13 +19,13 @@ const CustomVideoPlayer = ({ video }) => {
         setIsPlaying(!isPlaying);
     };
 
-    // Handle Mute Toggle
+
     const handleMuteToggle = () => {
         videoRef.current.muted = !isMuted;
         setIsMuted(!isMuted);
     };
 
-    // Handle Volume Change
+
     const handleVolumeChange = (e) => {
         const newVolume = e.target.value;
         videoRef.current.volume = newVolume;
@@ -32,14 +33,14 @@ const CustomVideoPlayer = ({ video }) => {
         setIsMuted(newVolume === "0");
     };
 
-    // Handle Speed Change
+
     const handleSpeedChange = (e) => {
         const newSpeed = e.target.value;
         videoRef.current.playbackRate = newSpeed;
         setPlaybackRate(newSpeed);
     };
 
-    // Handle Fullscreen
+
     const handleFullscreen = () => {
         if (videoRef.current.requestFullscreen) {
             videoRef.current.requestFullscreen();
@@ -50,7 +51,6 @@ const CustomVideoPlayer = ({ video }) => {
         }
     };
 
-    // Autoplay when in viewport
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -62,7 +62,7 @@ const CustomVideoPlayer = ({ video }) => {
                     setIsPlaying(false);
                 }
             },
-            { threshold: 0.5 } // Video is autoplayed when at least 50% is visible
+            { threshold: 0.5 }
         );
 
         if (videoRef.current) {
@@ -78,7 +78,6 @@ const CustomVideoPlayer = ({ video }) => {
 
     return (
         <div className="flex justify-center items-center relative group bg-black rounded-lg shadow-lg overflow-hidden">
-            {/* Video */}
             <video
                 ref={videoRef}
                 src={video}
@@ -87,14 +86,12 @@ const CustomVideoPlayer = ({ video }) => {
                 muted={isMuted}
             />
 
-            {/* Controls (animated, visible on hover) */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-black/70 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             >
-                {/* Play/Pause Button */}
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -104,7 +101,6 @@ const CustomVideoPlayer = ({ video }) => {
                     {isPlaying ? 'Pause' : 'Play'}
                 </motion.button>
 
-                {/* Mute/Unmute Button */}
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -114,7 +110,6 @@ const CustomVideoPlayer = ({ video }) => {
                     {isMuted ? 'Unmute' : 'Mute'}
                 </motion.button>
 
-                {/* Volume Slider */}
                 <motion.input
                     whileHover={{ scale: 1.05 }}
                     type="range"
@@ -126,7 +121,6 @@ const CustomVideoPlayer = ({ video }) => {
                     className="w-32 h-1 bg-gray-300 rounded-lg cursor-pointer"
                 />
 
-                {/* Speed Control */}
                 <motion.select
                     whileHover={{ scale: 1.05 }}
                     value={playbackRate}
@@ -143,7 +137,6 @@ const CustomVideoPlayer = ({ video }) => {
                     <option value="2">2x</option>
                 </motion.select>
 
-                {/* Fullscreen Button */}
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -153,6 +146,7 @@ const CustomVideoPlayer = ({ video }) => {
                     Fullscreen
                 </motion.button>
             </motion.div>
+            <ScrollRestoration />
         </div>
     );
 };

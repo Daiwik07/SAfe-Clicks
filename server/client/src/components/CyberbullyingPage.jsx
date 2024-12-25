@@ -21,7 +21,6 @@ const Section = ({ children, delay = 0 }) => {
 const CyberbullyingPage = () => {
     return (
         <div className="bg-gradient-to-br from-indigo-600 via-green-500 to-blue-400 min-h-screen text-white p-6 space-y-12 overflow-hidden">
-            {/* Hero Section */}
             <Section>
                 <div className="p-6relative flex justify-center items-center">
                     <motion.div
@@ -36,7 +35,6 @@ const CyberbullyingPage = () => {
                 </div>
             </Section>
 
-            {/* Understanding Section */}
             <Section delay={0.5}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <motion.div className="p-6 rounded-lg shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 text-white hover:scale-105 transition-transform">
@@ -55,7 +53,6 @@ const CyberbullyingPage = () => {
                 </div>
             </Section>
 
-            {/* Prevention Section */}
             <Section delay={1}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <motion.div className="p-6 rounded-lg shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 text-white hover:scale-105 transition-transform">
@@ -85,7 +82,6 @@ const CyberbullyingPage = () => {
                 </div>
             </Section>
 
-            {/* Taking Action Section */}
             <Section delay={1.5}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <motion.div className="p-6 rounded-lg shadow-2xl bg-gradient-to-r from-green-400 to-blue-500 text-white hover:scale-105 transition-transform">
@@ -107,7 +103,6 @@ const CyberbullyingPage = () => {
                 </div>
             </Section>
 
-            {/* Closing Section */}
             <Section delay={2}>
                 <div className="relative flex justify-center items-center">
                     <motion.div

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { ScrollRestoration } from 'react-router-dom';
 
 const Ai = () => {
 
@@ -20,7 +21,7 @@ const Ai = () => {
         const r = await fetch("http://localhost:3000/ai", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({data}),
+            body: JSON.stringify({ data }),
         });
         let res = await r.json()
         console.log(res)
@@ -42,10 +43,11 @@ const Ai = () => {
     return (
         <div className="flex flex-col items-center min-h-[57.2vh] bg-gradient-to-r from-green-500 via-[#47B884] to-teal-500 text-white p-6">
             <main className="w-full max-w-4xl bg-white text-gray-900 p-10 rounded-xl shadow-2xl transition-transform transform hover:scale-105 hover:shadow-lg duration-300">
-                    {form}
+                {form}
             </main>
+            <ScrollRestoration />
         </div>
-                
+
 
     )
 }

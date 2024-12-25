@@ -1,5 +1,6 @@
 import React from 'react';
 import { Images } from '../Images/images';
+import { ScrollRestoration } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -33,8 +34,9 @@ const Footer = () => {
                         </svg>
                     </a>
                 </div>
-                <p className="mt-4 text-sm">&copy; 2024 Olympic Pulse || All rights reserved.</p>
+                <p className="mt-4 text-sm">&copy; 2024 Safe Clicks || All rights reserved.</p>
             </div>
+            <ScrollRestoration />
         </footer>
     );
 };

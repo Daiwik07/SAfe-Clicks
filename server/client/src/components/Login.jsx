@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { ScrollRestoration } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Login = () => {
-    const ref = useRef();
-  
+  const ref = useRef();
+
   const {
     handleSubmit,
     register,
@@ -56,7 +57,7 @@ const Login = () => {
                     id='name'
                     name='name'
                     onChange={handleInputChange}
-                    />
+                  />
                   {errors.name && <div className='w-full text-red-600 text-sm font-semibold'>{errors.name.message}</div>}
 
                   <input
@@ -67,7 +68,7 @@ const Login = () => {
                     id='email'
                     name='email'
                     onChange={handleInputChange}
-                    />
+                  />
                   {errors.email && <div className='w-full text-red-600 text-sm font-semibold'>{errors.email.message}</div>}
 
                   <input
@@ -78,7 +79,7 @@ const Login = () => {
                     id='pass'
                     name="pass"
                     onChange={handleInputChange}
-                    />
+                  />
                   {errors.pass && <div className='w-full text-red-600 text-sm font-semibold'>{errors.pass.message}</div>}
                   <button type='submit' className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     {isSubmitting && <span className='loader mr-3'></span>}
@@ -97,22 +98,23 @@ const Login = () => {
               <p className="text-[50px] font-bold">Welcome to Log In</p>
               <p className='text-[17px]'>Don't have an account?</p>
               <Link className='no-underline mt-3' to="/register">
-              <motion.button
-                className="border-2 mx-5 p-3 rounded-xl text-white relative overflow-hidden"
-                whileHover={{
-                  background: "linear-gradient(45deg ,#47B884 0%, #47B884 40%, #FFD700 100%)",
-                  color: "#fff",
-                  scale: 1.05,
-                  boxShadow: "0px 4px 10px rgba(0,0,0,0.2)"
-                }}
-              >
-                Register
+                <motion.button
+                  className="border-2 mx-5 p-3 rounded-xl text-white relative overflow-hidden"
+                  whileHover={{
+                    background: "linear-gradient(45deg ,#47B884 0%, #47B884 40%, #FFD700 100%)",
+                    color: "#fff",
+                    scale: 1.05,
+                    boxShadow: "0px 4px 10px rgba(0,0,0,0.2)"
+                  }}
+                >
+                  Register
                 </motion.button>
-                </Link>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+      <ScrollRestoration />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { useForm } from "react-hook-form"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
+import { ScrollRestoration } from 'react-router-dom';
 
 const Register = () => {
     const {
@@ -14,13 +15,13 @@ const Register = () => {
     } = useForm()
     let btn
     if (isSubmitting) {
-       btn =( <button type='submit' disabled className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+        btn = (<button type='submit' disabled className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
             <span className='loader mr-3'></span>
             Register Your Account
         </button>)
     }
     else {
-       btn=( <button type='submit' className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+        btn = (<button type='submit' className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
             Register Your Account
         </button>)
     }
@@ -119,6 +120,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ScrollRestoration />
         </div>
     )
 }

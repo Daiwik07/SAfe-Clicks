@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { Images } from '../Images/Images';
+import { Images } from '../Images/images';
+import { ScrollRestoration } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 
 const Section = ({ children, delay = 0 }) => {
@@ -55,7 +56,6 @@ The friendship, though personal and within her rights, became a subject of contr
                     </motion.div>
                     <motion.img
                         src='https://childrenfirstcanada.org/wp-content/uploads/2021/04/cyberbullying2-700x500.png'
-                        alt="Neeraj Chopra at Asian Games"
                         className="rounded-lg shadow-lg hover:scale-105 transition-transform"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -63,7 +63,7 @@ The friendship, though personal and within her rights, became a subject of contr
                     />
                 </div>
             </Section>
-
+            <ScrollRestoration/>
         </div>
     );
 };
