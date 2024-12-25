@@ -1,9 +1,8 @@
 import Groq from "groq-sdk";
 import dotenv from 'dotenv'
 
-dotenv.config({ path:'/etc/secrets/GROQ.env'})
 
-const groq = new Groq({ apiKey: process.env.Groq });
+const groq = new Groq({ apiKey: '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'});
 
 export default async function main(data) {
     const chatCompletion = await getGroqChatCompletion(data);

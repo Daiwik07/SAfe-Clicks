@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 
-dotenv.config({ path:'/etc/secrets/uri.env'})
 
 async function connect() {
     try {
-        await mongoose.connect(process.env.uri)
+        await mongoose.connect('mongodb+srv://nimitgupta56789:Faridabad@99@safeclixk.e1xmt.mongodb.net/UsersData')
         console.log("successfully connected")
     }
     catch {
