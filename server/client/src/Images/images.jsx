@@ -1,5 +1,5 @@
 const Images = {
-    logo: new URL('./Untitled design.jpg', import.meta.url).href,
+    logo: new URL('./Logo.jpg', import.meta.url).href,
     first: new URL('./shady.jpg', import.meta.url).href,
     second: new URL('./shady2.jpg', import.meta.url).href,
     third: new URL('./shady3.jpg', import.meta.url).href,
