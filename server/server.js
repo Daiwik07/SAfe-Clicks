@@ -5,12 +5,18 @@ import users from "./connection.js";
 import feed from './feedback.js'
 import dotenv from 'dotenv';
 import { getGroqChatCompletion } from './chatgpt.js';
+import path from 'path'
+import { fileURLToPath } from 'url';
 
 const app = express();
 const PORT = 3000;
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, '/client/dist')))
 
 dotenv.config({ path: './.env' });
 
@@ -19,6 +25,10 @@ app.use((req, res, next) => {
     console.log("Request Body:", req.body);
     next();
 });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/dist/index.html'))
+})
 
 app.get("/", cors(), (req, res) => {
     res.send("Welcome to the API!");
